@@ -12,6 +12,7 @@ services:
     ports:
       # ポート番号設定
       - "3306:3306"
+      
 
   # Laravel
   laravel:
@@ -24,6 +25,7 @@ services:
     ports:
       # ポート番号設定
       - "8001:8000"
+      - "5173:5173"
     depends_on:
       # DB起動後 立ち上げ
       - db
