@@ -14,11 +14,16 @@ export default defineConfig({
                 }),
             ],
         }),
-        tailwindcss(),
+        // tailwindcss(),
     ],
     server: {
+        host: '0.0.0.0',
+        hmr: {
+            host: 'localhost', // ここを localhost に固定
+        },
         watch: {
             ignored: ['**/storage/framework/views/**'],
+            usePolling: true
         },
     },
 });
