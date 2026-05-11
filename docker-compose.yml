@@ -1,0 +1,43 @@
+services:
+  # DBサーバー設定
+  db:
+    image: mysql:8.0
+    environment:
+      # rootパスワード設定
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      # 起動時 DB自動作成
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      # ポート番号設定
+      - "3306:3306"
+
+  # Laravel
+  laravel:
+    build:
+      context: ./lv_app
+      dockerfile: Dockerfile
+    volumes:
+      # laravelフォルダをコンテナ内のWeb公開ディレクトリに同期
+      - ./lv_app:/var/www/html
+    ports:
+      # ポート番号設定
+      - "8001:8000"
+    depends_on:
+      # DB起動後 立ち上げ
+      - db
+
+  # CodeIgniter
+  codeigniter:
+    build:
+      context: ./ci_app
+      dockerfile: Dockerfile
+    volumes:
+      # codeigniterフォルダをコンテナ内のWeb公開ディレクトリに同期
+      - ./ci_app:/var/www/html
+    ports:
+      # ポート番号設定
+      - "8002:8000"
+    depends_on:
+      # DB起動後 立ち上げ
+      - db
