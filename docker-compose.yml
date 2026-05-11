@@ -5,6 +5,7 @@ services:
     environment:
       # rootパスワード設定
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: php_db
     volumes:
       # 起動時 DB自動作成
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
