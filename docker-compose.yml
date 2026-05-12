@@ -9,6 +9,7 @@ services:
     volumes:
       # 起動時 DB自動作成
       - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
+      - ./docker/mysql/data:/var/lib/mysql
     ports:
       # ポート番号設定
       - "3306:3306"
