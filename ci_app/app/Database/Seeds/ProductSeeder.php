@@ -12,7 +12,7 @@ class ProductSeeder extends Seeder
         $productModel = model('Product');
         $stockLogModel = model('StockLog');
 
-        for ($i = 0; $i < 20; $i++) {
+        for ($i = 0; $i < 5000; $i++) {
             // 商品データの作成
             $productData = [
                 'name'          => $faker->word . $faker->randomElement(['シャツ', 'パンツ', '靴下', '帽子']),
