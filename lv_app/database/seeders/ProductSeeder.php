@@ -14,7 +14,7 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         // 商品を20個作成し、それぞれに紐づく履歴を3件ずつ作成
-        \App\Models\Product::factory(20)
+        \App\Models\Product::factory(5000)
             ->hasStockLogs(3) 
             ->create();
     }
