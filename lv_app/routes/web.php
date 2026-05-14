@@ -8,4 +8,4 @@ Route::get('/', function () {
 });
 
 // http://localhost:8001/products
-Route::get('/products', [ProductController::class, 'index']);
+Route::get('/products', [ProductController::class, 'index'])->name('products.list');;
