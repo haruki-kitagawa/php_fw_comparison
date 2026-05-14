@@ -12,7 +12,7 @@ class ProductController extends Controller
         // データベースから全商品を一括取得
         $products = Product::all();
 
-        // resources/views/products/index.blade.php にデータを渡す
-        return view('products.index', compact('products'));
+        // resources/views/products/list.blade.php にデータを渡す
+        return view('products.list', compact('products'));
     }
 }
