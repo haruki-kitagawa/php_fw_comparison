@@ -14,7 +14,7 @@ return new class extends Migration
         // 商品マスタ
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->unique();
             $table->string('sku')->unique(); // 在庫管理コード
             $table->integer('current_stock')->default(0);
             $table->integer('min_stock')->default(5); // アラート基準
