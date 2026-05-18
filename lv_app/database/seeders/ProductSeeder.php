@@ -13,10 +13,9 @@ class ProductSeeder extends Seeder
      */
     public function run(): void
     {
-        // 在庫を増やす
-        \App\Models\Product::inRandomOrder()->take(100)->increment('current_stock', 50);
-
-        // 在庫を減らす（別の100件）
-        \App\Models\Product::inRandomOrder()->take(100)->decrement('current_stock', 50);
+        // 商品データを5000件生成
+        \App\Models\Product::factory(5000)
+            ->hasStockLogs(3) 
+            ->create();
     }
 }
