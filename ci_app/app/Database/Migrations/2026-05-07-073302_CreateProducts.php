@@ -20,6 +20,7 @@ class CreateProducts extends Migration
 
         $this->forge->addKey('id', true);
         $this->forge->addUniqueKey('sku');
+        $this->forge->addUniqueKey('name');
         $this->forge->createTable('products');
     }
 
