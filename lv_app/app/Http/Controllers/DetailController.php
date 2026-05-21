@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 class DetailController extends Controller
 {
     // 商品詳細画面
-    public function index()
+    public function index($id)
     {
-        $id = 1;
+        // クエリパラメータで渡されたIDに一致する商品情報を取得
         $product = Product::findOrFail($id);
         
         return view('products.detail', compact('product'));
