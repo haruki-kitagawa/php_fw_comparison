@@ -28,7 +28,7 @@
                     <tbody>
                         {{-- @forelseを使うと、データがある時とない時をスマートに分けられます --}}
                         @forelse ($products as $product)
-                            <tr>
+                            <tr onclick="location.href='{{ route('detail', $product->id) }}'" class="cursor-pointer hover:bg-gray-50">
                                 {{-- Laravel(Eloquent)はオブジェクト形式でアクセス --}}
                                 <td>{{ $product->id }}</td>
                                 <td>{{ $product->name }}</td>
