@@ -9,3 +9,5 @@ $routes->get('/', 'Home::index');
 
 // http://localhost:8002/products
 $routes->get('products', 'Product::index');
+
+$routes->get('detail/(:num)', 'Detail::index/$1');
