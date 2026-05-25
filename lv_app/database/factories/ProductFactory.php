@@ -17,12 +17,27 @@ class ProductFactory extends Factory
      */
     public function definition(): array
     {
-        // 商品タイプ: ランダム選択
-        $type = $this->faker->randomElement(['シャツ', 'パンツ', '靴下', '帽子']);
+        // 1. 英語のタイプをランダムに選択
+        $types = ['shirt', 'pants', 'socks', 'cap'];
+        $randomType = $this->faker->randomElement($types);
+
+        // 2. 画像ファイル名を生成（例: shirt03.png）
+        $imageNumber = sprintf('%02d', rand(1, 5));
+        $imageName = $randomType . $imageNumber . '.png';
+
+        // 3. 日本語の商品名を作りたい場合のマッピング
+        $japaneseNames = [
+            'shirt' => 'シャツ',
+            'pants' => 'パンツ',
+            'socks' => '靴下',
+            'cap'   => '帽子'
+        ];
+        $typeNameJa = $japaneseNames[$randomType];
+
         return [
-            'type' => $type,
-            'name' => $this->faker->word() . $type . '-' . $this->faker->unique()->bothify('??-###'),
-            'image_url' => $this->faker->optional(0.7)->imageUrl(640, 480, 'clothes', true), // 7割の確率で画像、3割でnull
+            'type' => $randomType,
+            'name' => $this->faker->word() . $typeNameJa . '-' . $this->faker->unique()->bothify('??-###'),
+            'image_url' => '/images/' . $imageName,
             'sku' => $this->faker->unique()->bothify('???-####'),
             'desc' => $this->faker->realTextBetween(60, 100),
             'current_stock' => $this->faker->numberBetween(0, 100),

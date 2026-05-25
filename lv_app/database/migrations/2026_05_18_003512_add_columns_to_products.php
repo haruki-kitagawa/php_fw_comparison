@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::table('products', function (Blueprint $table) {
             // 商品画像, タイプ, 説明, サイズ
             $table->string('image_url')->nullable()->after('name');                         // 商品画像
-            $table->enum('type', ['シャツ', 'パンツ', '靴下', '帽子'])->after('image_url');     // 商品タイプ
+            $table->enum('type', ['shirt', 'pants', 'socks', 'cap'])->after('image_url');     // 商品タイプ
             $table->string('desc')->after('sku');                                           // 商品説明
         });
     }

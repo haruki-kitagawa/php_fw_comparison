@@ -12,9 +12,18 @@ class ProductSeeder extends Seeder
         $productModel = model('Product');
         $stockLogModel = model('StockLog');
 
+        // 商品タイプ名選択
+        $types = ['shirt', 'pants', 'socks', 'cap'];
+        $japaneseNames = [
+            'shirt' => 'シャツ',
+            'pants' => 'パンツ',
+            'socks' => '靴下',
+            'cap'   => '帽子'
+        ];
+
         for ($i = 0; $i < 5000; $i++) {
-            // 商品タイプ名選択
-            $type = $faker->randomElement(['シャツ', 'パンツ', '靴下', '帽子']);
+            $randomType = $faker->randomElement($types);
+            $typeNameJa = $japaneseNames[$randomType];
             
             // 枝番生成
             $threeDigit = sprintf('%03d', $i % 1000); 
@@ -25,12 +34,15 @@ class ProductSeeder extends Seeder
             while (mb_strlen($desc) < 60) {
                 $desc = $faker->realText(100);
             }
+            
+            $imageNumber = sprintf('%02d', rand(1, 5));
+            $imageName = $randomType . $imageNumber . '.png';
 
             // 商品データの作成
             $productData = [
-                'name'          => $faker->word . $type . '-' . $branchNumber,
-                'type'          => $type,
-                'image_url'     => $faker->boolean(70) ? 'https://picsum.photos/200/200?random=' . $i : null,
+                'name'          => $faker->word . $typeNameJa . '-' . $branchNumber,
+                'type'          => $randomType,
+                'image_url'     => '/images/' . $imageName,
                 'sku'           => strtoupper($faker->bothify('???-####')),
                 'desc'          => $desc,
                 'current_stock' => $faker->numberBetween(10, 50),

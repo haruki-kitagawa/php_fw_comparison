@@ -18,7 +18,7 @@ class AddColumnsProducts extends Migration
             ],
             'type' => [
                 'type'       => 'ENUM',
-                'constraint' => ['シャツ', 'パンツ', '靴下', '帽子'],
+                'constraint' => ['shirt', 'pants', 'socks', 'cap'],
                 'after'      => 'image_url',
             ],
             'desc' => [
