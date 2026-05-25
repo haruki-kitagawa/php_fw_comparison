@@ -35,7 +35,7 @@
                         <!-- 取得した商品一覧データが空でないなら表示 -->
                         <?php if (!empty($products)): ?>
                             <?php foreach ($products as $product): ?>
-                                <tr>
+                                <tr onclick="location.href='<?= site_url('detail/' . esc($product['id'], 'url')) ?>'">
                                     <td><?= esc($product['id']) ?></td>
                                     <td><?= esc($product['name']) ?></td>
                                     <td><?= esc($product['sku']) ?></td>
