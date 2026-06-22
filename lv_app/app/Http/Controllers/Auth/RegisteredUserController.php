@@ -46,6 +46,7 @@ class RegisteredUserController extends Controller
 
         Auth::login($user);
 
-        return redirect(route('dashboard', absolute: false));
+        // ログイン後は商品一覧に遷移
+        return redirect(route('products', absolute: false));
     }
 }
