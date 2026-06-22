@@ -28,7 +28,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // ログイン後はプロダクト一覧画面に遷移
+        return redirect()->intended(route('products', absolute: false));
     }
 
     /**
