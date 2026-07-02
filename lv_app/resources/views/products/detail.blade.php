@@ -69,6 +69,40 @@
                             <span class="fw-medium">在庫ステータス: 良好</span>
                         </div>
                     @endif
+
+                    <!-- 管理者のみに表示 -->
+                    @if(auth()->user()->role === 'admin')
+                        <div class="card bg-light border-0 p-3 mb-3 shadow-sm">
+                            <h3 class="h6 fw-bold text-secondary text-uppercase mb-3">商品管理 (管理者用)</h3>
+                            
+                            @error('quantity')
+                                <div class="alert alert-danger border-0 small py-2 px-3 mb-3">{{ $message }}</div>
+                            @enderror
+                            
+                            @if (session('status'))
+                                <div class="alert alert-success border-0 small py-2 px-3 mb-3">{{ session('status') }}</div>
+                            @endif
+                            
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+                                
+                                <form action="{{ route('products.update_stock', $product->id) }}" method="POST" class="d-flex gap-2 m-0 flex-grow-1" style="max-width: 260px;">
+                                    @csrf
+                                    @method('PATCH')
+                                    <input type="number" name="quantity" class="form-control form-control-sm border-light-subtle" placeholder="数量（例: 5 や -3）" required>
+                                    <button type="submit" class="btn btn-sm btn-primary px-3 fw-medium text-nowrap">在庫を更新</button>
+                                </form>
+
+                                <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="m-0" onsubmit="return confirm('本当にこの商品を削除しますか？（関連する在庫ログも削除されます）');">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-sm btn-outline-danger px-3 text-nowrap">
+                                        この商品を削除する
+                                    </button>
+                                </form>
+
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </div>

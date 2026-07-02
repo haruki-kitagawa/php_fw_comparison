@@ -11,6 +11,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/', [ProductController::class, 'index'])->name('products');
     // 商品詳細
     Route::get('/detail/{id}', [DetailController::class, 'index'])->name('detail');
+    Route::patch('/detail/{id}/stock', [DetailController::class, 'updateStock'])->name('products.update_stock');
+    Route::delete('/detail/{id}', [DetailController::class, 'destroy'])->name('products.destroy');
     
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');

@@ -28,6 +28,11 @@
         </div>
     </div>
     <div class="container mt-5">
+        @if (session('status'))
+            <div class="alert alert-success border-0 small shadow-sm py-2 px-3 mb-4" role="alert">
+                {{ session('status') }}
+            </div>
+        @endif
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1>{{ $title ?? '商品一覧_Laravel' }}</h1>
             <span class="badge bg-primary fs-5">Total: {{ count($products) }} items</span>
