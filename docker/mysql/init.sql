@@ -323,7 +323,7 @@ CREATE TABLE `sessions` (
 
 LOCK TABLES `sessions` WRITE;
 /*!40000 ALTER TABLE `sessions` DISABLE KEYS */;
-INSERT INTO `sessions` VALUES ('XQWD15UTjpBcNIig0ZTx7OrcGHJD07MBxIUkzQ0d',2,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','eyJfdG9rZW4iOiJBeHR3RnpoVnJVRllZR0VuUWlleHF2anNycXFqM3NWeHl0azkzTVNlIiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJ1cmwiOnsiaW50ZW5kZWQiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMSJ9LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDEiLCJyb3V0ZSI6InByb2R1Y3RzIn0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjoyfQ==',1783301914);
+INSERT INTO `sessions` VALUES ('9KiJebgl4WoAzSCUqT5rrOhRsOD1pls9LLWGNEBV',3,'185.199.108.133','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','eyJfdG9rZW4iOiJSM2RYT3BJRGxIdkhLUUxKSlFFOHJCaURpaXZPbVpwdzQ1RkRUc0llIiwiX2ZsYXNoIjp7Im9sZCI6W10sIm5ldyI6W119LCJ1cmwiOnsiaW50ZW5kZWQiOiJodHRwOlwvXC9sb2NhbGhvc3Q6ODAwMSJ9LCJfcHJldmlvdXMiOnsidXJsIjoiaHR0cDpcL1wvbG9jYWxob3N0OjgwMDFcL2RldGFpbFwvMSIsInJvdXRlIjoiZGV0YWlsIn0sImxvZ2luX3dlYl81OWJhMzZhZGRjMmIyZjk0MDE1ODBmMDE0YzdmNThlYTRlMzA5ODlkIjozfQ==',1783304571);
 /*!40000 ALTER TABLE `sessions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -412,7 +412,7 @@ CREATE TABLE `shield_auth_identities` (
 
 LOCK TABLES `shield_auth_identities` WRITE;
 /*!40000 ALTER TABLE `shield_auth_identities` DISABLE KEYS */;
-INSERT INTO `shield_auth_identities` VALUES (1,1,'email_password','ci@example.com','$2y$12$EJJxZT2PgCtGOPBt732PpuiwjzO76YCuG//cmZFhnWzs87tTJUim2',NULL,NULL,NULL,0,'2026-07-06 01:39:11','2026-07-06 01:39:11');
+INSERT INTO `shield_auth_identities` VALUES (1,1,'email_password','ci@example.com','$2y$12$EJJxZT2PgCtGOPBt732PpuiwjzO76YCuG//cmZFhnWzs87tTJUim2',NULL,'2026-07-06 01:43:04',NULL,0,'2026-07-06 01:39:11','2026-07-06 01:43:04');
 /*!40000 ALTER TABLE `shield_auth_identities` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -434,7 +434,7 @@ CREATE TABLE `shield_auth_logins` (
   `success` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -443,7 +443,7 @@ CREATE TABLE `shield_auth_logins` (
 
 LOCK TABLES `shield_auth_logins` WRITE;
 /*!40000 ALTER TABLE `shield_auth_logins` DISABLE KEYS */;
-INSERT INTO `shield_auth_logins` VALUES (1,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:31:53',0),(2,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:32:02',0),(3,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:33:10',0),(4,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:35:10',0);
+INSERT INTO `shield_auth_logins` VALUES (1,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:31:53',0),(2,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:32:02',0),(3,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:33:10',0),(4,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','kitagawa.haruki.works@gmail.com',NULL,'2026-07-06 01:35:10',0),(5,'192.168.65.1','Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/149.0.0.0 Safari/537.36','email_password','ci@example.com',1,'2026-07-06 01:43:04',1);
 /*!40000 ALTER TABLE `shield_auth_logins` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -561,7 +561,7 @@ CREATE TABLE `shield_users` (
 
 LOCK TABLES `shield_users` WRITE;
 /*!40000 ALTER TABLE `shield_users` DISABLE KEYS */;
-INSERT INTO `shield_users` VALUES (1,'CodeIgniter',NULL,NULL,0,NULL,'2026-07-06 01:39:10','2026-07-06 01:39:10',NULL);
+INSERT INTO `shield_users` VALUES (1,'CodeIgniter',NULL,NULL,0,'2026-07-06 02:12:44','2026-07-06 01:39:10','2026-07-06 01:39:10',NULL);
 /*!40000 ALTER TABLE `shield_users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -614,7 +614,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -623,7 +623,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'h_kitagawa','kitagawa.haruki.works@gmail.com',NULL,'$2y$12$r/S6KSEfbPcuYhW0xFp0cO0aOtcfeLRGz9wZuz0AsJcpxwNPuq7Ku','staff',NULL,'2026-07-06 00:52:44','2026-07-06 00:52:44'),(2,'Laravel','lv@example.com',NULL,'$2y$12$vWIthvsDCdyCYdNOUveTZ.fiGNUMyPoS7XiU9Nwj79nMW59LnAvly','staff',NULL,'2026-07-06 01:38:34','2026-07-06 01:38:34');
+INSERT INTO `users` VALUES (1,'h_kitagawa','kitagawa.haruki.works@gmail.com',NULL,'$2y$12$r/S6KSEfbPcuYhW0xFp0cO0aOtcfeLRGz9wZuz0AsJcpxwNPuq7Ku','staff',NULL,'2026-07-06 00:52:44','2026-07-06 00:52:44'),(2,'Laravel','lv@example.com',NULL,'$2y$12$vWIthvsDCdyCYdNOUveTZ.fiGNUMyPoS7XiU9Nwj79nMW59LnAvly','staff',NULL,'2026-07-06 01:38:34','2026-07-06 01:38:34'),(3,'admin','admin@example.com',NULL,'$2y$12$l6xS/Xa7QIobSmeST4bKm.nQC/NGYCO6Zv14C6SVIYzODR8mg5mbe','admin',NULL,'2026-07-06 02:19:41','2026-07-06 02:22:44');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -636,4 +636,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-07-06  1:43:00
+-- Dump completed on 2026-07-06  2:23:10
