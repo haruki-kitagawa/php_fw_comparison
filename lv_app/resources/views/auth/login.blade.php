@@ -1,90 +1,46 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>サインイン</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light text-dark">
+<x-guest-layout>
+    <!-- Session Status -->
+    <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="min-vh-100 d-flex flex-column align-items-center justify-content-center py-5 px-3">
-        
-        <div class="w-100" style="max-width: 440px;">
-            
-            <div class="text-center mb-5"> <h1 class="h3 fw-bold text-dark mb-3">サインイン</h1>
-                <p class="text-secondary small mb-0 lh-base">アカウント情報を入力してログインしてください</p>
-            </div>
+    <form method="POST" action="{{ route('login') }}">
+        @csrf
 
-            <div class="card border-0 shadow-sm rounded-4 bg-white">
-                <div class="card-body p-4 p-sm-5">
-                    
-                    @if (session('status'))
-                        <div class="alert alert-success border-0 small mb-4 py-2 px-3 lh-base" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
+        <!-- Email Address -->
+        <div>
+            <x-input-label for="email" :value="__('Email')" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
+            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        </div>
 
-                    <form method="POST" action="{{ route('login') }}">
-                        @csrf
+        <!-- Password -->
+        <div class="mt-4">
+            <x-input-label for="password" :value="__('Password')" />
 
-                        <div class="mb-5"> <label for="email" class="form-label text-uppercase text-secondary fw-semibold small mb-2" style="letter-spacing: 0.05em;">
-                                メールアドレス
-                            </label>
-                            <input id="email" type="email" name="email" value="{{ old('email') }}" 
-                                   class="form-control form-control-lg fs-6 border-light-subtle" 
-                                   required autofocus autocomplete="username" placeholder="name@example.com">
-                            
-                            @error('email')
-                                <div class="invalid-feedback small mt-2 lh-base">{{ $message }}</div>
-                            @enderror
-                        </div>
+            <x-text-input id="password" class="block mt-1 w-full"
+                type="password"
+                name="password"
+                required autocomplete="current-password" />
+            <x-input-error :messages="$errors->get('password')" class="mt-2" />
+        </div>
 
-                        <div class="mb-5"> <div class="d-flex justify-content-between align-items-center mb-2">
-                                <label for="password" class="form-label text-uppercase text-secondary fw-semibold small m-0" style="letter-spacing: 0.05em;">
-                                    パスワード
-                                </label>
-                                @if (Route::has('password.request'))
-                                    <a class="text-decoration-none small text-primary fw-medium" href="{{ route('password.request') }}" style="font-size: 0.85rem;">
-                                        お忘れですか？
-                                    </a>
-                                @endif
-                            </div>
-                            <input id="password" type="password" name="password" 
-                                   class="form-control form-control-lg fs-6 border-light-subtle" 
-                                   required autocomplete="current-password" placeholder="••••••••">
-                            
-                            @error('password')
-                                <div class="invalid-feedback small mt-2 lh-base">{{ $message }}</div>
-                            @enderror
-                        </div>
+        <!-- Remember Me -->
+        <div class="block mt-4">
+            <label for="remember_me" class="inline-flex items-center">
+                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
+                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+            </label>
+        </div>
 
-                        <div class="form-check mb-5"> <input id="remember_me" type="checkbox" name="remember" class="form-check-input border-secondary-subtle shadow-sm">
-                            <label for="remember_me" class="form-check-label text-secondary small align-middle lh-base ms-1">
-                                ログイン状態を保持する
-                            </label>
-                        </div>
-
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary btn-lg fs-6 fw-medium py-2 shadow-sm">
-                                ログイン
-                            </button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-
-            @if (Route::has('register'))
-                <div class="text-center mt-5"> <p class="text-secondary small lh-base">
-                        アカウントをお持ちでないですか？ 
-                        <a href="{{ route('register') }}" class="text-decoration-none text-primary fw-semibold ms-1">新しく登録する</a>
-                    </p>
-                </div>
+        <div class="flex items-center justify-end mt-4">
+            @if (Route::has('password.request'))
+                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
+                    {{ __('Forgot your password?') }}
+                </a>
             @endif
 
+            <x-primary-button class="ms-3">
+                {{ __('Log in') }}
+            </x-primary-button>
         </div>
-    </div>
-
-</body>
-</html>
+    </form>
+</x-guest-layout>
